@@ -54,16 +54,4 @@ namespace Game.HelperClasses
 
         public event EventHandler OnGameFinished;
     }
-
-    //public event RoutedEventHandler onKeyboardEvent;
-
-    //public event EventHandler onGameFinished;
-
-    //public void CheckIfSomeoneAttached()
-    //{
-    //    if(this.onKeyboardEvent != null)
-    //    {
-    //        this.onKeyboardEvent.Invoke(new Object(), new RoutedEventArgs(Keyboard.PreviewLostKeyboardFocusEvent));
-    //    }
-    //}
 }

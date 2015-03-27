@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2B02D84E-7360-4B23-AEB8-8DBC71F8FC30}</ProjectGuid>
+    <ProjectGuid>{3E07C5D2-24E1-44F1-9264-8F1A40E9C45B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Game</RootNamespace>
-    <AssemblyName>Game</AssemblyName>
+    <RootNamespace>Sokoban</RootNamespace>
+    <AssemblyName>Sokoban</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,7 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -38,35 +37,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DrawLogic\ConsoleRenderer.cs" />
-    <Compile Include="GameEngine\GameEngine.cs" />
-    <Compile Include="GamesLogic\InitialGame\GameObjects\Character.cs" />
-    <Compile Include="GamesLogic\InitialGame\GameObjects\GameField.cs" />
-    <Compile Include="GamesLogic\InitialGame\InitialGameLogic.cs" />
-    <Compile Include="GamesLogic\Sokoban\Engine\SokobanGameEngine.cs" />
-    <Compile Include="GamesLogic\Sokoban\GameLogic\SokobanGameLogic.cs" />
-    <Compile Include="GamesLogic\Sokoban\GameObjects\Block.cs" />
-    <Compile Include="GamesLogic\Sokoban\GameObjects\Character.cs" />
-    <Compile Include="GamesLogic\Sokoban\GameObjects\SokobanGameLevel1.cs" />
-    <Compile Include="HelperClasses\GameEventArgs.cs" />
-    <Compile Include="HelperClasses\GameEvents.cs" />
-    <Compile Include="HelperClasses\KeyboardState.cs" />
-    <Compile Include="HelperClasses\Position.cs" />
-    <Compile Include="Interfaces\IGameEvents.cs" />
-    <Compile Include="Interfaces\IGameObject.cs" />
-    <Compile Include="Interfaces\IMovable.cs" />
-    <Compile Include="Interfaces\IRenderable.cs" />
-    <Compile Include="Interfaces\IRenderer.cs" />
+    <Compile Include="GameEngine\SokobanGameEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GamesLogic\Hangman\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="GameClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

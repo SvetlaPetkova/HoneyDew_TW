@@ -1,6 +1,7 @@
 ﻿using Game.DrawLogic;
 using Game.GamesLogic.InitialGame;
 using Game.GamesLogic.InitialGame.GameObjects;
+using Game.GamesLogic.Sokoban.Engine;
 using Game.HelperClasses;
 using Game.Interfaces;
 using System;
@@ -12,26 +13,27 @@ using System.Threading.Tasks;
 
 namespace Game.GameEngine
 {
-    public static class GameEngine
+    public class GameEngine
     {
-        private static GameField field;
-        private static IRenderer renderer;
-        private static InitialGameLogic initialGameLogic;
-        private static GameEvents gameEvents;
+        private GameField field;
+        private IRenderer renderer;
+        private InitialGameLogic initialGameLogic;
+        private GameEvents gameEvents;
+        private SokobanGameEngine sokobanGE;
 
-        public static void StartGame()
+        public void StartGame()
         {
             InitializeVariables();
             StartGameLoop();
         }
 
-        public static void AttachListenersToKeyboard()
+        public void AttachListenersToKeyboard()
         {
             gameEvents.OnKeyboardPressed += initialGameLogic.HandleKeyboardInputs;
             //TODO: attach handlers of other game logics here
         }
 
-        private static void StartGameLoop()
+        private void StartGameLoop()
         {
             AttachListenersToKeyboard();
             while(true)
@@ -42,7 +44,7 @@ namespace Game.GameEngine
 
                 if(initialGameLogic.ExitThisGameAnPassControlToOther)
                 {
-                    GoIntoAnotherGameLoop();
+                    GoToSokobanGameLoop();
                 }
 
                 //render all
@@ -52,25 +54,18 @@ namespace Game.GameEngine
             }
         }
 
-        private static void GoIntoAnotherGameLoop()
+        private void GoToSokobanGameLoop()
         {
-            //AnotherGame.Start();
-            Console.Clear();
-            while (true)
-            {
-                //if(endGameCondition)
-                //{
-                //    break;
-                //}
-            }
+            sokobanGE.StartSokoban();
         }
 
-        private static void InitializeVariables()
+        private void InitializeVariables()
         {
-            field = new GameField();
-            renderer = new ConsoleRenderer();
-            initialGameLogic = new InitialGameLogic();
-            gameEvents = new GameEvents();
+            this.field = new GameField();
+            this.renderer = new ConsoleRenderer();
+            this.initialGameLogic = new InitialGameLogic();
+            this.gameEvents = new GameEvents();
+            this.sokobanGE = new SokobanGameEngine(renderer, gameEvents);   
         }
     }
 }

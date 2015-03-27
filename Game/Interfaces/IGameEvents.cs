@@ -13,5 +13,7 @@ namespace Game.Interfaces
         event EventHandler OnKeyboardPressed;
 
         event EventHandler OnGameFinished;
+
+        void ProcessInput();
     }
 }
