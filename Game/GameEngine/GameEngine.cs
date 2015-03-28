@@ -30,7 +30,10 @@ namespace Game.GameEngine
         public void AttachListenersToKeyboard()
         {
             gameEvents.OnKeyboardPressed += initialGameLogic.HandleKeyboardInputs;
-            //TODO: attach handlers of other game logics here
+        }
+        public void DetachistenersFromKeyboard()
+        {
+            gameEvents.OnKeyboardPressed -= initialGameLogic.HandleKeyboardInputs;
         }
 
         private void StartGameLoop()
@@ -42,9 +45,12 @@ namespace Game.GameEngine
                 //move character on field charachter to field
                 initialGameLogic.MoveCharachterOnField(field);
 
-                if(initialGameLogic.ExitThisGameAnPassControlToOther)
+                if(initialGameLogic.PassControlToSomeoneElse)
                 {
+                    DetachistenersFromKeyboard();
                     GoToSokobanGameLoop();
+                    AttachListenersToKeyboard();
+                    initialGameLogic.PassControlToSomeoneElse = false;
                 }
 
                 //render all

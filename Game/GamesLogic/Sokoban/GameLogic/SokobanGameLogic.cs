@@ -67,12 +67,12 @@ namespace Game.GamesLogic.Sokoban.GameLogic
             }
         }
 
-        public void HandleKeyboardInputs(object sender, EventArgs e)
+        public void HandleSokobanKeyboardInputs(object sender, EventArgs e)
         {
             GameEventArgs keyboardArgs = (GameEventArgs)e;
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Left)
             {
-                if (this.character.CurrentPosition.X > 0)
+                if (this.character.CurrentPosition.X > 1)
                 { 
                     this.character.CurrentPosition.X--;
                 }
@@ -80,7 +80,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Up)
             {
-                if (this.character.CurrentPosition.X < 75)
+                if (this.character.CurrentPosition.Y > 1)
                 {
                     this.character.CurrentPosition.Y--;
                 }
@@ -88,7 +88,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Down)
             {
-                if (this.character.CurrentPosition.Y < 75)
+                if (this.character.CurrentPosition.Y < 17)
                 {
                     this.character.CurrentPosition.Y++;
                 }
@@ -96,13 +96,13 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Right)
             {
-                if (this.character.CurrentPosition.Y < 75)
+                if (this.character.CurrentPosition.X < 17)
                 {
                     this.character.CurrentPosition.X++;
                 }
             }
 
-            if (keyboardArgs.KeyboardCurrentState == KeyboardState.Action)
+            if (keyboardArgs.KeyboardCurrentState == KeyboardState.Escape)
             {
                 this.ShouldPassControl = true;
             }

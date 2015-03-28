@@ -26,7 +26,21 @@ namespace Game.GamesLogic.InitialGame.GameObjects
                     field[row, col] = ' ';
                 }
             }
+            PutPressKeyTextOnField(field);
             return field;
+        }
+
+        private void PutPressKeyTextOnField(char[,] field)
+        {
+            field[4, 10] = 'P';
+            field[4, 11] = 'R';
+            field[4, 12] = 'E';
+            field[4, 13] = 'S';
+            field[4, 14] = 'S';
+            field[4, 15] = ' ';
+            field[4, 16] = '"';
+            field[4, 17] = 'E';
+            field[4, 18] = '"';
         }
 
         public char[,] Body

@@ -28,8 +28,12 @@ namespace Game.GamesLogic.Sokoban.Engine
         
         public void AttachListenersToKeyboard()
         {
-            this.gameEvents.OnKeyboardPressed += this.sokobanGameLogic.HandleKeyboardInputs;
-            //TODO: attach handlers of other game logics here
+            this.gameEvents.OnKeyboardPressed += this.sokobanGameLogic.HandleSokobanKeyboardInputs;
+        }
+
+        public void DetachListenersFromKeyboard()
+        {
+            this.gameEvents.OnKeyboardPressed -= this.sokobanGameLogic.HandleSokobanKeyboardInputs;
         }
 
         public void StartSokoban()
@@ -37,11 +41,18 @@ namespace Game.GamesLogic.Sokoban.Engine
             this.renderer.Clear();
 
             AttachListenersToKeyboard();
+            this.sokobanGameLogic.ShouldPassControl = false;
             while(true)
             {
                 this.gameEvents.ProcessInput();
 
                 this.sokobanGameLogic.DrawSokobanGameObjects(this.level1);
+
+                if(this.sokobanGameLogic.ShouldPassControl)
+                {
+                    DetachListenersFromKeyboard();
+                    break;
+                }
 
                 //render all
                 renderer.Render(level1);

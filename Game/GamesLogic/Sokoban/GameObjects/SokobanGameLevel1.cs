@@ -36,8 +36,23 @@ namespace Game.GamesLogic.Sokoban.GameObjects
                 field[0, col] = '0';
                 field[cols, col] = '0';
             }
+            PutPressKeyTextOnField(field);
 
             return field;
+        }
+        private void PutPressKeyTextOnField(char[,] field)
+        {
+            field[21, 2] = 'P';
+            field[21, 3] = 'R';
+            field[21, 4] = 'E';
+            field[21, 5] = 'S';
+            field[21, 6] = 'S';
+            field[21, 7] = ' ';
+            field[21, 8] = '"';
+            field[21, 9] = 'E';
+            field[21, 10] = 'S';
+            field[21, 11] = 'C';
+            field[21, 12] = '"';
         }
 
         public char[,] Body

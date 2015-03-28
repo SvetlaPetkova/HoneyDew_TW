@@ -19,11 +19,11 @@ namespace Game.GamesLogic.InitialGame
 
         public InitialGameLogic()
         {
-            this.ExitThisGameAnPassControlToOther = false;
+            this.PassControlToSomeoneElse = false;
             this.charachter  = new Character();
         }
-        //DEMO rewrite later
-        public bool ExitThisGameAnPassControlToOther { get; set; }
+
+        public bool PassControlToSomeoneElse { get; set; }
 
         public void MoveCharachterOnField(GameField field)
         {
@@ -46,7 +46,10 @@ namespace Game.GamesLogic.InitialGame
             {
                 for (int j = 0; j < field.Body.GetLength(1); j++)
                 {
-                    field.Body[i, j] = ' ';
+                    if (!char.IsLetter(field.Body[i, j]))
+                    {
+                        field.Body[i, j] = ' ';
+                    }
                 }
             }
         }
@@ -71,9 +74,25 @@ namespace Game.GamesLogic.InitialGame
                 }
             }
 
+            if (keyboardArgs.KeyboardCurrentState == KeyboardState.Up)
+            {
+                if (this.charachter.CurrentPosition.Y > 6)
+                {
+                    this.charachter.CurrentPosition.Y--;
+                }
+            }
+
+            if (keyboardArgs.KeyboardCurrentState == KeyboardState.Down)
+            {
+                if (this.charachter.CurrentPosition.Y < 75)
+                {
+                    this.charachter.CurrentPosition.Y++;
+                }
+            }
+
             if(keyboardArgs.KeyboardCurrentState == KeyboardState.Action)
             {
-                this.ExitThisGameAnPassControlToOther = true;
+                this.PassControlToSomeoneElse = true;
             }
         }
     }
