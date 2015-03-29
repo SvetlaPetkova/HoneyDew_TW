@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DrawLogic\ConsoleRenderer.cs" />
     <Compile Include="GameEngine\GameEngine.cs" />
+    <Compile Include="GamesLogic\Hangman\Alphabet.cs" />
     <Compile Include="GamesLogic\InitialGame\GameObjects\Character.cs" />
     <Compile Include="GamesLogic\InitialGame\GameObjects\GameField.cs" />
     <Compile Include="GamesLogic\InitialGame\InitialGameLogic.cs" />
@@ -62,9 +63,7 @@
     <Compile Include="Interfaces\IRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GamesLogic\Hangman\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="GameClassDiagram.cd" />
   </ItemGroup>
