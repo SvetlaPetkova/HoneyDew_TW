@@ -43,7 +43,13 @@
   <ItemGroup>
     <Compile Include="DrawLogic\ConsoleRenderer.cs" />
     <Compile Include="GameEngine\GameEngine.cs" />
-    <Compile Include="GamesLogic\Hangman\Alphabet.cs" />
+    <Compile Include="GamesLogic\Hangman\Engine\HangmanGameEngine.cs" />
+    <Compile Include="GamesLogic\Hangman\GameLogic\HangmanGameLogic.cs" />
+    <Compile Include="GamesLogic\Hangman\GameObjects\Alphabet.cs" />
+    <Compile Include="GamesLogic\Hangman\GameObjects\Character.cs" />
+    <Compile Include="GamesLogic\Hangman\GameObjects\GameField.cs" />
+    <Compile Include="GamesLogic\Hangman\GameObjects\HangmanTitle.cs" />
+    <Compile Include="GamesLogic\Hangman\GameObjects\Word.cs" />
     <Compile Include="GamesLogic\InitialGame\GameObjects\Character.cs" />
     <Compile Include="GamesLogic\InitialGame\GameObjects\GameField.cs" />
     <Compile Include="GamesLogic\InitialGame\InitialGameLogic.cs" />
