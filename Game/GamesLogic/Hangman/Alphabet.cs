@@ -8,7 +8,7 @@
     {
         private static Dictionary<char, char[,]> alphabet = new Dictionary<char, char[,]>();
 
-        public char[,] GetLetter( char let)
+        public static char[,] GetLetter( char let)
         {
             return alphabet[let];
         }
