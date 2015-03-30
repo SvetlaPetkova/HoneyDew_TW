@@ -8,6 +8,7 @@ namespace Game.Interfaces
 {
     public interface IRenderable
     {
-        char[,] Body { get; set; }
+        // Pleace keep that interface without set
+        char[,] Body { get; }
     }
 }

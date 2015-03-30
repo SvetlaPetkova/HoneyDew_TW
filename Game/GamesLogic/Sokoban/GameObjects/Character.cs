@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game.GamesLogic.Sokoban.GameObjects
 {
-    class Character : IGameObject
+    class Character : IGameObject, IRenderable
     {
         private Position currentPosition;
         private char[,] charachterBody;
@@ -16,9 +16,8 @@ namespace Game.GamesLogic.Sokoban.GameObjects
         public Character()
         {
             this.CurrentPosition = new Position(8, 8);
-            this.charachterBody = new char[,] {{' ', '^',' '},
-                                               {'<', '8','>'},
-                                               {' ', '8',' '}};
+            this.charachterBody = new char[,] {{'^', ' '},
+                                               {'<','>'}};
         }
 
         public Position CurrentPosition
@@ -41,7 +40,7 @@ namespace Game.GamesLogic.Sokoban.GameObjects
             }
             set
             {
-                
+
             }
         }
     }
