@@ -11,5 +11,7 @@ namespace Game.HelperClasses
         public bool IsGameFinished { get; set; }
 
         public KeyboardState KeyboardCurrentState { get; set; }
+
+        public ConsoleKeyInfo KeyInfo { get; set; }
     }
 }

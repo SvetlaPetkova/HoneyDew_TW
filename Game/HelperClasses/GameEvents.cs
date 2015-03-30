@@ -22,25 +22,30 @@ namespace Game.HelperClasses
                 {
                     gameArgs.KeyboardCurrentState = KeyboardState.Left;
                 }
-                if (keyInfo.Key.Equals(ConsoleKey.RightArrow))
+                else if (keyInfo.Key.Equals(ConsoleKey.RightArrow))
                 {
                     gameArgs.KeyboardCurrentState = KeyboardState.Right;
                 }
-                if (keyInfo.Key.Equals(ConsoleKey.DownArrow))
+                else if (keyInfo.Key.Equals(ConsoleKey.DownArrow))
                 {
                     gameArgs.KeyboardCurrentState = KeyboardState.Down;
                 }
-                if (keyInfo.Key.Equals(ConsoleKey.UpArrow))
+                else if (keyInfo.Key.Equals(ConsoleKey.UpArrow))
                 {
                     gameArgs.KeyboardCurrentState = KeyboardState.Up;
                 }
-                if (keyInfo.Key.Equals(ConsoleKey.Escape))
+                else if (keyInfo.Key.Equals(ConsoleKey.Escape))
                 {
                     gameArgs.KeyboardCurrentState = KeyboardState.Escape;
                 }
-                if (keyInfo.Key.Equals(ConsoleKey.E))
+                else if (keyInfo.Key.Equals(ConsoleKey.Enter))
                 {
                     gameArgs.KeyboardCurrentState = KeyboardState.Action;
+                }
+                else
+                {
+                    gameArgs.KeyInfo = keyInfo;
+                    gameArgs.KeyboardCurrentState = KeyboardState.None;
                 }
 
                 if (this.OnKeyboardPressed != null)

@@ -18,7 +18,7 @@ namespace Game.GamesLogic.InitialGame.GameObjects
 
         private char[,] InitializeGameField()
         {
-            var field = new char[80, 80];
+            var field = new char[50, 100];
             for (int row = 0; row < field.GetLength(0); row++)
             {
                 for (int col = 0; col < field.GetLength(1); col++)
@@ -40,7 +40,11 @@ namespace Game.GamesLogic.InitialGame.GameObjects
             field[4, 15] = ' ';
             field[4, 16] = '"';
             field[4, 17] = 'E';
-            field[4, 18] = '"';
+            field[4, 18] = 'N';
+            field[4, 19] = 'T';
+            field[4, 20] = 'E';
+            field[4, 21] = 'R';
+            field[4, 22] = '"';
         }
 
         public char[,] Body

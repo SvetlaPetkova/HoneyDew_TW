@@ -16,7 +16,7 @@ namespace Game.GamesLogic.InitialGame.GameObjects
         public Character()
         {
             this.Body = InitializeCharachterBody();
-            this.CurrentPosition = new Position(20, 65);
+            this.CurrentPosition = new Position(20, 20);
         }
 
         private char[,] InitializeCharachterBody()

@@ -7,12 +7,13 @@
     public static class Alphabet
     {
         private static Dictionary<char, char[,]> alphabet = new Dictionary<char, char[,]>();
+        public static bool isInitialised = false;
 
-        public static char[,] GetLetter( char let)
+        public static char[,] GetLetter(char let)
         {
             return alphabet[let];
         }
-        
+
         public static void InitialiseAlphabet()
         {
             alphabet.Add(' ', new char[,]{
@@ -204,6 +205,8 @@
                              {' ' ,'|' ,' ' ,'|' ,'_' ,'_' ,'_' ,' ' ,' '},
                              {' ' ,'|' ,'_' ,'_' ,'_' ,'_' ,'_' ,'|' ,' '}
                             });
+
+            isInitialised = true;
 
         }
     }

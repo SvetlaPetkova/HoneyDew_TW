@@ -1,4 +1,5 @@
 ﻿using Game.DrawLogic;
+using Game.GamesLogic.Hangman.Engine;
 using Game.GamesLogic.InitialGame;
 using Game.GamesLogic.InitialGame.GameObjects;
 using Game.GamesLogic.Sokoban.Engine;
@@ -20,6 +21,7 @@ namespace Game.GameEngine
         private InitialGameLogic initialGameLogic;
         private GameEvents gameEvents;
         private SokobanGameEngine sokobanGE;
+        private HangmanGameEngine hangmanGE;
 
         public void StartGame()
         {
@@ -39,16 +41,23 @@ namespace Game.GameEngine
         private void StartGameLoop()
         {
             AttachListenersToKeyboard();
-            while(true)
+            while (true)
             {
                 gameEvents.ProcessInput();
                 //move character on field charachter to field
                 initialGameLogic.MoveCharachterOnField(field);
 
-                if(initialGameLogic.PassControlToSomeoneElse)
+                //if (initialGameLogic.PassControlToSomeoneElse)
+                //{
+                //    DetachistenersFromKeyboard();
+                //    GoToSokobanGameLoop();
+                //    AttachListenersToKeyboard();
+                //    initialGameLogic.PassControlToSomeoneElse = false;
+                //}
+                if (initialGameLogic.PassControlToSomeoneElse)
                 {
                     DetachistenersFromKeyboard();
-                    GoToSokobanGameLoop();
+                    GoToHangmanGameLoop();
                     AttachListenersToKeyboard();
                     initialGameLogic.PassControlToSomeoneElse = false;
                 }
@@ -64,6 +73,10 @@ namespace Game.GameEngine
         {
             sokobanGE.StartSokoban();
         }
+        private void GoToHangmanGameLoop()
+        {
+            hangmanGE.StartGame();
+        }
 
         private void InitializeVariables()
         {
@@ -71,7 +84,8 @@ namespace Game.GameEngine
             this.renderer = new ConsoleRenderer();
             this.initialGameLogic = new InitialGameLogic();
             this.gameEvents = new GameEvents();
-            this.sokobanGE = new SokobanGameEngine(renderer, gameEvents);   
+            this.sokobanGE = new SokobanGameEngine(renderer, gameEvents);
+            this.hangmanGE = new HangmanGameEngine(renderer, gameEvents);
         }
     }
 }

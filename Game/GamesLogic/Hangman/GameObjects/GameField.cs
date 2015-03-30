@@ -1,26 +1,44 @@
-﻿namespace Game.GamesLogic.Hangman.GameObjects
+﻿using Game.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Game.GamesLogic.Hangman.GameObjects
 {
-    using System;
-
-    public class GameField
+    public class GameField : IRenderable
     {
-        private char[,] field;
+        private char[,] gameField;
 
-        public GameField(int rows, int cols)
+        public GameField()
         {
-            Console.BufferHeight = rows;
-            Console.BufferWidth = cols;
-            this.field = new char[rows, cols];
+            this.Body = InitializeGameField();
         }
 
-        public int GetCols()
+        private char[,] InitializeGameField()
         {
-            return this.field.GetLength(1);
+            var field = new char[50, 100];
+            for (int row = 0; row < field.GetLength(0); row++)
+            {
+                for (int col = 0; col < field.GetLength(1); col++)
+                {
+                    field[row, col] = ' ';
+                }
+            }
+            return field;
         }
 
-        public int GetRows()
+        public char[,] Body
         {
-            return this.field.GetLength(0);
+            get
+            {
+                return this.gameField;
+            }
+            set
+            {
+                this.gameField = value;
+            }
         }
     }
 }

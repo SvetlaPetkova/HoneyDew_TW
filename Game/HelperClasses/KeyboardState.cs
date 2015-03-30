@@ -13,6 +13,8 @@ namespace Game.HelperClasses
         Left,
         Right,
         Escape,
-        Action
+        Action,
+        None
+
     }
 }
