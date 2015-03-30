@@ -60,6 +60,7 @@
     <Compile Include="GamesLogic\Sokoban\GameObjects\Elevator.cs" />
     <Compile Include="GamesLogic\Sokoban\GameObjects\SokobanGameLevel1.cs" />
     <Compile Include="GamesLogic\Sokoban\GameObjects\Wall.cs" />
+    <Compile Include="HelperClasses\File.cs" />
     <Compile Include="HelperClasses\GameEventArgs.cs" />
     <Compile Include="HelperClasses\GameEvents.cs" />
     <Compile Include="HelperClasses\KeyboardState.cs" />
