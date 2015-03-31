@@ -12,14 +12,14 @@ namespace Game.GamesLogic.Sokoban.GameObjects
     public class Wall : IGameObject, IRenderable
     {
         private Position currentPosition;
-        public Wall(Position initialPosition, bool direction, int length)
+        public Wall(Position initialPosition, WallDirection direction, int length)
         {
             this.CurrentPosition = initialPosition;
             this.Direction = direction;
             this.Length = length;
             ConstructBody(1, this.Length, this.Direction);
         }
-        public bool Direction { get; private set; }
+        public WallDirection Direction { get; private set; }
         public int Length { get; private set; }
 
         public Position CurrentPosition
@@ -36,11 +36,11 @@ namespace Game.GamesLogic.Sokoban.GameObjects
 
         public char[,] Body { get; private set; }
 
-        private void ConstructBody(int width, int lenght, bool direction)
+        private void ConstructBody(int width, int lenght, WallDirection direction)
         {
             int rowMax;
             int colMax;
-            if (direction == true)
+            if (direction == WallDirection.Horizontal)
             {
                 rowMax = width;
                 colMax = lenght;
