@@ -112,13 +112,14 @@ namespace Game.GamesLogic.Sokoban.GameLogic
             GameEventArgs keyboardArgs = (GameEventArgs)e;
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Left)
             {
-                if (this.character.CurrentPosition.X > 1)
+                if (this.character.CurrentPosition.X > 1 && !(CollisionsDetection.MovingLeft(FillWithBlocks(), this.character))
+                    && !(this.character.CurrentPosition.X == 7 && (this.character.CurrentPosition.Y > 8 && this.character.CurrentPosition.Y <= 20)))
                 {
                     this.character.CurrentPosition.X--;
                 }
             }
 
-            if (keyboardArgs.KeyboardCurrentState == KeyboardState.Up)
+            if (keyboardArgs.KeyboardCurrentState == KeyboardState.Up && !(CollisionsDetection.MovingUp(FillWithBlocks(), this.character)))
             {
                 if (this.character.CurrentPosition.Y > 1)
                 {
@@ -128,7 +129,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Down)
             {
-                if (this.character.CurrentPosition.Y < 37)
+                if (this.character.CurrentPosition.Y < 37 && !(CollisionsDetection.MovingDown(FillWithBlocks(), this.character)))
                 {
                     this.character.CurrentPosition.Y++;
                 }
@@ -136,7 +137,8 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Right)
             {
-                if (this.character.CurrentPosition.X < 37)
+                if (this.character.CurrentPosition.X < 32 && !(CollisionsDetection.MovingRight(FillWithBlocks(), this.character))
+                    && !(this.character.CurrentPosition.X == 34 && (this.character.CurrentPosition.Y > 10 && this.character.CurrentPosition.Y <= 20)))
                 {
                     this.character.CurrentPosition.X++;
                 }

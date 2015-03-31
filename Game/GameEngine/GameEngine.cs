@@ -47,20 +47,20 @@ namespace Game.GameEngine
                 //move character on field charachter to field
                 initialGameLogic.MoveCharachterOnField(field);
 
-                //if (initialGameLogic.PassControlToSomeoneElse)
-                //{
-                //    DetachistenersFromKeyboard();
-                //    GoToSokobanGameLoop();
-                //    AttachListenersToKeyboard();
-                //    initialGameLogic.PassControlToSomeoneElse = false;
-                //}
                 if (initialGameLogic.PassControlToSomeoneElse)
                 {
                     DetachistenersFromKeyboard();
-                    GoToHangmanGameLoop();
+                    GoToSokobanGameLoop();
                     AttachListenersToKeyboard();
                     initialGameLogic.PassControlToSomeoneElse = false;
                 }
+                //if (initialGameLogic.PassControlToSomeoneElse)
+                //{
+                //    DetachistenersFromKeyboard();
+                //    GoToHangmanGameLoop();
+                //    AttachListenersToKeyboard();
+                //    initialGameLogic.PassControlToSomeoneElse = false;
+                //}
 
                 //render all
                 renderer.Render(field);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game.GamesLogic.Sokoban.GameObjects
 {
-    class Character : IGameObject, IRenderable
+    public class Character : IGameObject, IRenderable
     {
         private Position currentPosition;
         private char[,] charachterBody;
