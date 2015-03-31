@@ -20,8 +20,8 @@ namespace Game.GameEngine
         private IRenderer renderer;
         private InitialGameLogic initialGameLogic;
         private GameEvents gameEvents;
-        private SokobanGameEngine sokobanGE;
-        private HangmanGameEngine hangmanGE;
+        //
+        //
 
         public void StartGame()
         {
@@ -46,18 +46,11 @@ namespace Game.GameEngine
                 gameEvents.ProcessInput();
                 //move character on field charachter to field
                 initialGameLogic.MoveCharachterOnField(field);
-
-                //if (initialGameLogic.PassControlToSomeoneElse)
-                //{
-                //    DetachistenersFromKeyboard();
-                //    GoToSokobanGameLoop();
-                //    AttachListenersToKeyboard();
-                //    initialGameLogic.PassControlToSomeoneElse = false;
-                //}
+                
                 if (initialGameLogic.PassControlToSomeoneElse)
                 {
                     DetachistenersFromKeyboard();
-                    GoToHangmanGameLoop();
+                    //GoToHangmanGameLoop();
                     AttachListenersToKeyboard();
                     initialGameLogic.PassControlToSomeoneElse = false;
                 }
@@ -69,23 +62,12 @@ namespace Game.GameEngine
             }
         }
 
-        private void GoToSokobanGameLoop()
-        {
-            sokobanGE.StartSokoban();
-        }
-        private void GoToHangmanGameLoop()
-        {
-            hangmanGE.StartGame();
-        }
-
         private void InitializeVariables()
         {
             this.field = new GameField();
             this.renderer = new ConsoleRenderer();
-            this.initialGameLogic = new InitialGameLogic();
             this.gameEvents = new GameEvents();
-            this.sokobanGE = new SokobanGameEngine(renderer, gameEvents);
-            this.hangmanGE = new HangmanGameEngine(renderer, gameEvents);
+            this.initialGameLogic = new InitialGameLogic(renderer, gameEvents);
         }
     }
 }

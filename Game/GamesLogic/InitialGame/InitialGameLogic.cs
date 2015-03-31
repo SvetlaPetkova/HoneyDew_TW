@@ -9,16 +9,22 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Game.GamesLogic.Sokoban.Engine;
+using Game.GamesLogic.Hangman.Engine;
+using Game.Interfaces;
 
 namespace Game.GamesLogic.InitialGame
 {
     public class InitialGameLogic
     {
-
+        private SokobanGameEngine sokobanGE;
+        private HangmanGameEngine hangmanGE;
         private Character charachter;
 
-        public InitialGameLogic()
+        public InitialGameLogic(IRenderer renderer, IGameEvents gameEvent)
         {
+            this.sokobanGE = new SokobanGameEngine(renderer,gameEvent);
+            this.hangmanGE = new HangmanGameEngine(renderer, gameEvent);
             this.PassControlToSomeoneElse = false;
             this.charachter  = new Character();
         }
@@ -93,7 +99,25 @@ namespace Game.GamesLogic.InitialGame
             if(keyboardArgs.KeyboardCurrentState == KeyboardState.Action)
             {
                 this.PassControlToSomeoneElse = true;
+                if(this.charachter.CurrentPosition.X <= Console.WindowWidth / 2)
+                {
+                    sokobanGE.StartSokoban();
+                }
+                else if (this.charachter.CurrentPosition.X > Console.WindowWidth / 2)
+                {
+                    hangmanGE.StartGame();
+                }
             }
+
+        }
+
+        private void GoToSokobanGameLoop()
+        {
+            sokobanGE.StartSokoban();
+        }
+        private void GoToHangmanGameLoop()
+        {
+            hangmanGE.StartGame();
         }
     }
 }

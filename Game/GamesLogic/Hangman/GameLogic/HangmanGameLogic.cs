@@ -17,7 +17,7 @@
         private Character character;
         private Word currentWord;
         private ISet<char> usedLetters;
-        private bool gameEnded;
+        public bool ShouldPassControl { get; set; }
 
         public List<IRenderable> GameObjects { get; set; }
 
@@ -28,10 +28,9 @@
             this.character = new Character(new Position(1, 2));
             this.currentWord = new Word(new Position(1, 40), Word.PickWord());
             this.GameObjects = new List<IRenderable> { character, currentWord };
+            this.ShouldPassControl = false;
 
             this.usedLetters = new HashSet<char>();
-            this.GameEnded = false;
-
         }
 
         private static void InitAlphabet()
@@ -41,20 +40,27 @@
                 Alphabet.InitialiseAlphabet();
             }
         }
-
-        public bool GameEnded
-        {
-            get { return gameEnded; }
-            private set { gameEnded = value; }
-        }
+        
 
         public void HandleHangmanKeyboardInputs(object sender, EventArgs e)
         {
+            
             //get console input
             GameEventArgs keyboardArgs = (GameEventArgs)e;
-            ConsoleKeyInfo pressedKeyInfo = keyboardArgs.KeyInfo;
-            char input = pressedKeyInfo.KeyChar;
+            bool flag = keyboardArgs.KeyboardCurrentState == KeyboardState.Escape;
+            if (flag)
+            {
+                while (Console.KeyAvailable)
+                {
+                    Console.ReadKey(false);
+                }
+                this.ShouldPassControl = true;
+                return;
+            }
 
+            ConsoleKeyInfo pressedKeyInfo = keyboardArgs.KeyInfo;
+
+            char input = pressedKeyInfo.KeyChar;
             //check if entered character is a letter
             if (!char.IsLetter(input))
             {
@@ -94,7 +100,7 @@
             if (character.IsLose())
             {
                 Console.WriteLine("YOU LOOSE!!!");
-                this.GameEnded = true;
+                this.ShouldPassControl = true;
             }
             // TO DO return result to the game engine
         }
@@ -104,7 +110,7 @@
             if (this.currentWord.IsRevield)
             {
                 Console.WriteLine("YOU WIN!!!");
-                this.GameEnded = true;
+                this.ShouldPassControl = true;
             }
             // TO DO return result to the game engine
         }
