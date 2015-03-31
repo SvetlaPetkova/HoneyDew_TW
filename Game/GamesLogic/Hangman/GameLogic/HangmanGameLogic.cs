@@ -26,7 +26,7 @@
             InitAlphabet();
 
             this.character = new Character(new Position(1, 2));
-            this.currentWord = new Word(new Position(1, 40), Word.PickWord());
+            this.currentWord = new Word(new Position(1, 30), Word.PickWord());
             this.GameObjects = new List<IRenderable> { character, currentWord };
 
             this.usedLetters = new HashSet<char>();
@@ -119,7 +119,9 @@
                     {
                         var currentY = obj.CurrentPosition.Y;
                         var currentX = obj.CurrentPosition.X;
+
                         field.Body[row + currentY, col + currentX] = obj.Body[row, col];
+
                     }
                 }
             }
