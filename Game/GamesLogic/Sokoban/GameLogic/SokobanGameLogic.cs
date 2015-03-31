@@ -51,7 +51,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
                 {
                     var separateElements = separateLines[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                     objs.Add(new Wall(new Position(int.Parse(separateElements[0]), int.Parse(separateElements[1]))
-                        , separateElements[2] == "true" ? true : false, int.Parse(separateElements[3])));
+                        , separateElements[2] == "Horizontal" ? WallDirection.Horizontal : WallDirection.Vertical, int.Parse(separateElements[3])));
                 }
 
                 if (inBlocks)
