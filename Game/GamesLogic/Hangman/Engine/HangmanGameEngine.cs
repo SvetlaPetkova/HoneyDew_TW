@@ -42,6 +42,7 @@ namespace Game.GamesLogic.Hangman.Engine
             //AttachListenersToKeyboard();
             this.AttachListenersToKeyboard();
 
+            hangmanGameLogic.ShouldPassControl = false;
             while (true)
             {
                 this.gameEvents.ProcessInput();
@@ -53,10 +54,11 @@ namespace Game.GamesLogic.Hangman.Engine
                 Thread.Sleep(700);
                 renderer.Clear();
 
-                if (this.hangmanGameLogic.GameEnded == true) // TO DO use events
+                if (this.hangmanGameLogic.ShouldPassControl)
                 {
-                    this.DetachListenersFromKeyboard();
-                    return;
+                    DetachListenersFromKeyboard();
+
+                    break;
                 }
             }
 
