@@ -18,7 +18,8 @@ namespace Game.GamesLogic.Hangman.GameObjects
 
         private char[,] InitializeGameField()
         {
-            var field = new char[50, 100];
+            var field = new char[Console.WindowHeight - 1, Console.WindowWidth - 2];
+
             for (int row = 0; row < field.GetLength(0); row++)
             {
                 for (int col = 0; col < field.GetLength(1); col++)

@@ -26,7 +26,7 @@
             InitAlphabet();
 
             this.character = new Character(new Position(1, 2));
-            this.currentWord = new Word(new Position(1, 40), Word.PickWord());
+            this.currentWord = new Word(new Position(1, 30), Word.PickWord());
             this.GameObjects = new List<IRenderable> { character, currentWord };
 
             this.usedLetters = new HashSet<char>();
@@ -65,13 +65,22 @@
             //check if entered letter is entered before
             if (this.usedLetters.Contains(letter))
             {
-                Console.WriteLine("You have already told {0}", letter);
+                this.character.usedLetterFlag = true;
+                this.character.usedLetter = letter;
+                this.character.UpdateBody();
+                this.character.usedLetterFlag = false;
+                //Console.WriteLine("You have already told {0}", letter);
+                //Thread.Sleep(2000);
+
                 return;
             }
+            //else this.character.usedLetter = false;
+            
 
             //if word contains the letter
             if (this.currentWord.PickedWord.Contains(letter.ToString()) && char.IsLetter(letter))
             {
+                this.character.UpdateBody();
                 this.usedLetters.Add(letter);
                 this.currentWord.UpdateWord(letter);
                 CheckForWin();
@@ -93,7 +102,10 @@
         {
             if (character.IsLose())
             {
+                Console.Clear();
                 Console.WriteLine("YOU LOOSE!!!");
+                Thread.Sleep(2000);
+
                 this.GameEnded = true;
             }
             // TO DO return result to the game engine
@@ -103,7 +115,9 @@
         {
             if (this.currentWord.IsRevield)
             {
+                Console.Clear();
                 Console.WriteLine("YOU WIN!!!");
+                Thread.Sleep(2000);
                 this.GameEnded = true;
             }
             // TO DO return result to the game engine
@@ -119,7 +133,9 @@
                     {
                         var currentY = obj.CurrentPosition.Y;
                         var currentX = obj.CurrentPosition.X;
+
                         field.Body[row + currentY, col + currentX] = obj.Body[row, col];
+
                     }
                 }
             }

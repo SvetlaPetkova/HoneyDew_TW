@@ -15,7 +15,8 @@ namespace Game.GamesLogic.Hangman.GameObjects
 
         private char[,] characterBody;
         private Position currentPosition;
-
+        public bool usedLetterFlag = false;
+        public char usedLetter;
         private int lives;
 
         public Character(Position position)
@@ -95,8 +96,8 @@ namespace Game.GamesLogic.Hangman.GameObjects
         {
 
             var picture = new List<string>();
-
-
+            if (this.usedLetterFlag == true) picture.Add("You have already told this letter " + usedLetter);
+            else picture.Add("");            
             if (this.Lives == 7)
             {
                 picture.Add("     __________________");
