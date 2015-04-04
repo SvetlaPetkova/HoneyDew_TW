@@ -19,7 +19,7 @@
         private ISet<char> usedLetters;
         public bool ShouldPassControl { get; set; }
 
-        public List<IRenderable> GameObjects { get; set; }
+        public IList<IRenderable> GameObjects { get; set; }
 
         public HangmanGameLogic()
         {
@@ -131,23 +131,7 @@
             // TO DO return result to the game engine
         }
 
-        public void DrawHangManGameObjects(IRenderable field)
-        {
-            foreach (IGameObject obj in this.GameObjects)
-            {
-                for (int row = 0; row < obj.Body.GetLength(0); row++)
-                {
-                    for (int col = 0; col < obj.Body.GetLength(1); col++)
-                    {
-                        var currentY = obj.CurrentPosition.Y;
-                        var currentX = obj.CurrentPosition.X;
-
-                        field.Body[row + currentY, col + currentX] = obj.Body[row, col];
-
-                    }
-                }
-            }
-        }
+       
 
     }
 }

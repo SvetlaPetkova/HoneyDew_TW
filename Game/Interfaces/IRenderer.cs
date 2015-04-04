@@ -9,6 +9,7 @@ namespace Game.Interfaces
     public interface IRenderer
     {
         void Render(IRenderable obj);
+        void DrawObjects(IRenderable field,IList<IRenderable> objects);
 
         void Clear();
     }

@@ -14,9 +14,6 @@ namespace Game
     {
         public static void Main()
         {
-            Console.WindowWidth = Console.BufferWidth = 101;
-            Console.WindowHeight = Console.BufferHeight = 51;
-
             GameEngine.GameEngine ga = new GameEngine.GameEngine();
             ga.StartGame();
         }

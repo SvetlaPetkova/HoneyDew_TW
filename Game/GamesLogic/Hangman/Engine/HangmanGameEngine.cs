@@ -17,7 +17,7 @@ namespace Game.GamesLogic.Hangman.Engine
         private IRenderer renderer;
         private HangmanGameLogic hangmanGameLogic;
         private IGameEvents gameEvents;
-        private GameField field;
+        private IRenderable field;
 
         public HangmanGameEngine(IRenderer renderer, IGameEvents gameEvents)
         {
@@ -31,10 +31,12 @@ namespace Game.GamesLogic.Hangman.Engine
         {
             this.gameEvents.OnKeyboardPressed += this.hangmanGameLogic.HandleHangmanKeyboardInputs;
         }
+
         public void DetachListenersFromKeyboard()
         {
             this.gameEvents.OnKeyboardPressed -= this.hangmanGameLogic.HandleHangmanKeyboardInputs;
         }
+
         public void StartGame()
         {
             this.renderer.Clear();
@@ -48,8 +50,7 @@ namespace Game.GamesLogic.Hangman.Engine
                 this.gameEvents.ProcessInput();
 
                 //render all
-                this.hangmanGameLogic.DrawHangManGameObjects(field);
-                renderer.Render(field);
+                renderer.DrawObjects(field, hangmanGameLogic.GameObjects);
 
                 Thread.Sleep(700);
                 renderer.Clear();
@@ -57,7 +58,6 @@ namespace Game.GamesLogic.Hangman.Engine
                 if (this.hangmanGameLogic.ShouldPassControl)
                 {
                     DetachListenersFromKeyboard();
-
                     break;
                 }
             }

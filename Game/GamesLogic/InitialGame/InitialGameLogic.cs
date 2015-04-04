@@ -19,96 +19,90 @@ namespace Game.GamesLogic.InitialGame
     {
         private SokobanGameEngine sokobanGE;
         private HangmanGameEngine hangmanGE;
-        private Character charachter;
+        private Character character;
+        private Action subGame;
+
+        public Action SubGame
+        {
+            get { return subGame; }
+            set { subGame = value; }
+        }
+
+        public Character Character
+        {
+            get { return character; }
+            set { character = value; }
+        }
+        
 
         public InitialGameLogic(IRenderer renderer, IGameEvents gameEvent)
         {
             this.sokobanGE = new SokobanGameEngine(renderer,gameEvent);
             this.hangmanGE = new HangmanGameEngine(renderer, gameEvent);
             this.PassControlToSomeoneElse = false;
-            this.charachter  = new Character();
+            this.Character = new Character();
         }
 
         public bool PassControlToSomeoneElse { get; set; }
 
-        public void MoveCharachterOnField(GameField field)
-        {
 
-            ClrearAroundCharachter(ref field);
-            for (int row = 0; row < this.charachter.Body.GetLength(0); row++)
-            {
-                for (int col = 0; col < this.charachter.Body.GetLength(1); col++)
-                {
-                    var currentY = this.charachter.CurrentPosition.Y;
-                    var currentX = this.charachter.CurrentPosition.X;
-                    field.Body[(currentY + row), (currentX + col)] = this.charachter.Body[row, col];
-                }
-            }
-        }
-
-        private void ClrearAroundCharachter(ref GameField field)
-        {
-            for (int i = 0; i < field.Body.GetLength(0); i++)
-            {
-                for (int j = 0; j < field.Body.GetLength(1); j++)
-                {
-                    if (!char.IsLetter(field.Body[i, j]))
-                    {
-                        field.Body[i, j] = ' ';
-                    }
-                }
-            }
-        }
-
+        
 
         public void HandleKeyboardInputs(object sender, EventArgs e)
         {
             GameEventArgs keyboardArgs = (GameEventArgs)e;
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Left)
             {
-                if(this.charachter.CurrentPosition.X > 0)
+                if(this.Character.CurrentPosition.X > 0)
                 {
-                    this.charachter.CurrentPosition.X--;
+                    this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
+                    this.character.PreviousPosition.X = this.character.CurrentPosition.X;
+                    this.Character.CurrentPosition.X--;
                 }
             }
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Right)
             {
-                if(this.charachter.CurrentPosition.X < 75)
+                if(this.character.CurrentPosition.X < 75)
                 {
-                    this.charachter.CurrentPosition.X++;
+                    this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
+                    this.character.PreviousPosition.X = this.character.CurrentPosition.X;
+                    this.Character.CurrentPosition.X++;
                 }
             }
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Up)
             {
-                if (this.charachter.CurrentPosition.Y > 6)
+                if (this.Character.CurrentPosition.Y > 6)
                 {
-                    this.charachter.CurrentPosition.Y--;
+                    this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
+                    this.character.PreviousPosition.X = this.character.CurrentPosition.X;
+                    this.Character.CurrentPosition.Y--;
                 }
             }
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Down)
             {
-                if (this.charachter.CurrentPosition.Y < 75)
+                if (this.Character.CurrentPosition.Y < 75)
                 {
-                    this.charachter.CurrentPosition.Y++;
+                    this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
+                    this.character.PreviousPosition.X = this.character.CurrentPosition.X;
+                    this.Character.CurrentPosition.Y++;
                 }
             }
 
             if(keyboardArgs.KeyboardCurrentState == KeyboardState.Action)
             {
                 this.PassControlToSomeoneElse = true;
-                if(this.charachter.CurrentPosition.X <= Console.WindowWidth / 2)
+                if(this.Character.CurrentPosition.X <= Console.WindowWidth / 2)
                 {
-                    sokobanGE.StartSokoban();
+                    this.subGame = new Action(sokobanGE.StartSokoban);
                 }
-                else if (this.charachter.CurrentPosition.X > Console.WindowWidth / 2)
+                else if (this.Character.CurrentPosition.X > Console.WindowWidth / 2)
                 {
-                    hangmanGE.StartGame();
+                    this.subGame = new Action(hangmanGE.StartGame);
                 }
             }
-
         }
 
         private void GoToSokobanGameLoop()

@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 
 namespace Game.GamesLogic.Sokoban.GameObjects
 {
-    public class Block : IGameObject
+    public class Block : IGameObject, IMovable
     {
         private Position currentPosition;
         private char[,] blockBody;
+        private Position previousPosition;
+        private string direction;
 
         public Block(Position initialPosition)
         {
             this.CurrentPosition = initialPosition;
             this.blockBody = new char[,] {{'G', 'G'},
                                           {'G', 'G'}};
+            this.PreviousPosition = new Position(this.currentPosition.X, this.currentPosition.Y);
         }
 
         public Position CurrentPosition
@@ -40,7 +43,31 @@ namespace Game.GamesLogic.Sokoban.GameObjects
             }
             set
             {
-                
+
+            }
+        }
+
+        public Position PreviousPosition
+        {
+            get
+            {
+                return this.previousPosition;
+            }
+            set
+            {
+                this.previousPosition = value;
+            }
+        }
+
+        public string Direction
+        {
+            get
+            {
+                return this.direction;
+            }
+            set
+            {
+                this.direction = value;
             }
         }
     }

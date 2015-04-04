@@ -12,18 +12,18 @@ namespace Game.GamesLogic.Sokoban.GameLogic
     public class SokobanGameLogic
     {
         private Character character;
-        private IEnumerable<IGameObject> gameObjects;
+        private IList<IGameObject> gameObjects;
         public bool ShouldPassControl { get; set; }
-
 
         public SokobanGameLogic()
         {
             this.character = new Character();
             this.ShouldPassControl = false;
-            this.gameObjects = FillWithBlocks();
+            this.GameObjects = FillWithBlocks();
         }
+        public IList<IGameObject> GameObjects { get; protected set; }
 
-        private IEnumerable<IGameObject> FillWithBlocks()
+        private IList<IGameObject> FillWithBlocks()
         {
             var objs = new List<IGameObject>();
 
@@ -71,10 +71,9 @@ namespace Game.GamesLogic.Sokoban.GameLogic
             objs.Add(this.character);
             return objs;
         }
-
         public void DrawSokobanGameObjects(SokobanGameLevel1 field)
         {
-            this.ClrearAroundCharachter(ref field);
+            this.ClearAroundCharachter(ref field);
 
             foreach (IGameObject obj in this.gameObjects)
             {
@@ -89,8 +88,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
                 }
             }
         }
-
-        private void ClrearAroundCharachter(ref SokobanGameLevel1 field)
+        private void ClearAroundCharachter(ref SokobanGameLevel1 field)
         {
             var rows = 40;
             var cols = 40;
@@ -115,6 +113,8 @@ namespace Game.GamesLogic.Sokoban.GameLogic
                 if (this.character.CurrentPosition.X > 1 && !(CollisionsDetection.MovingLeft(FillWithBlocks(), this.character))
                     && !(this.character.CurrentPosition.X == 7 && (this.character.CurrentPosition.Y > 8 && this.character.CurrentPosition.Y <= 20)))
                 {
+                    this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
+                    this.character.PreviousPosition.X = this.character.CurrentPosition.X;
                     this.character.CurrentPosition.X--;
                 }
             }
@@ -123,6 +123,8 @@ namespace Game.GamesLogic.Sokoban.GameLogic
             {
                 if (this.character.CurrentPosition.Y > 1)
                 {
+                    this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
+                    this.character.PreviousPosition.X = this.character.CurrentPosition.X;
                     this.character.CurrentPosition.Y--;
                 }
             }
@@ -131,6 +133,8 @@ namespace Game.GamesLogic.Sokoban.GameLogic
             {
                 if (this.character.CurrentPosition.Y < 37 && !(CollisionsDetection.MovingDown(FillWithBlocks(), this.character)))
                 {
+                    this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
+                    this.character.PreviousPosition.X = this.character.CurrentPosition.X;
                     this.character.CurrentPosition.Y++;
                 }
             }
@@ -140,6 +144,8 @@ namespace Game.GamesLogic.Sokoban.GameLogic
                 if (this.character.CurrentPosition.X < 32 && !(CollisionsDetection.MovingRight(FillWithBlocks(), this.character))
                     && !(this.character.CurrentPosition.X == 34 && (this.character.CurrentPosition.Y > 10 && this.character.CurrentPosition.Y <= 20)))
                 {
+                    this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
+                    this.character.PreviousPosition.X = this.character.CurrentPosition.X;
                     this.character.CurrentPosition.X++;
                 }
             }

@@ -10,7 +10,7 @@
   <Class Name="Game.GamesLogic.Hangman.GameObjects.Character" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="8" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAIAAAAAAAABAAACAAIQAgACgAAAAAQQAAA=</HashCode>
+      <HashCode>AAABAAAAAAIAAAAAAAEBAAACAAIQAgACgAAAAAQQAEA=</HashCode>
       <FileName>GamesLogic\Hangman\GameObjects\Character.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -41,7 +41,7 @@
   <Class Name="Game.GamesLogic.InitialGame.GameObjects.Character" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="9.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAAAAAAABAIACAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQIAAAAAAAAIAAAACABAIACAAAAAgAAAABAAAAAAAA=</HashCode>
       <FileName>GamesLogic\InitialGame\GameObjects\Character.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -57,7 +57,7 @@
   <Class Name="Game.GamesLogic.Sokoban.GameObjects.Block" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAABAAACAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAIIAAACABAAACAAAAAgAAAABAAAAAAAA=</HashCode>
       <FileName>GamesLogic\Sokoban\GameObjects\Block.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -65,7 +65,7 @@
   <Class Name="Game.GamesLogic.Sokoban.GameObjects.Character" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="4.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABAIACAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAIAAAACABAIACAAAAAgAAAABAAAAAAAA=</HashCode>
       <FileName>GamesLogic\Sokoban\GameObjects\Character.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -85,21 +85,21 @@
       <FileName>Interfaces\IGameEvents.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Game.Interfaces.IGameObject" Collapsed="true">
-    <Position X="2" Y="2" Width="1.5" />
+  <Interface Name="Game.Interfaces.IGameObject">
+    <Position X="2" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IGameObject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game.Interfaces.IMovable" Collapsed="true">
-    <Position X="6.25" Y="4" Width="1.5" />
+    <Position X="1.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>Interfaces\IMovable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Game.Interfaces.IRenderable" Collapsed="true">
+  <Interface Name="Game.Interfaces.IRenderable">
     <Position X="2" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -109,7 +109,7 @@
   <Interface Name="Game.Interfaces.IRenderer" Collapsed="true">
     <Position X="8" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABAAAABAAAA=</HashCode>
       <FileName>Interfaces\IRenderer.cs</FileName>
     </TypeIdentifier>
   </Interface>

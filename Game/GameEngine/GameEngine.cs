@@ -20,8 +20,6 @@ namespace Game.GameEngine
         private IRenderer renderer;
         private InitialGameLogic initialGameLogic;
         private GameEvents gameEvents;
-        //
-        //
 
         public void StartGame()
         {
@@ -44,21 +42,26 @@ namespace Game.GameEngine
             while (true)
             {
                 gameEvents.ProcessInput();
-                //move character on field charachter to field
-                initialGameLogic.MoveCharachterOnField(field);
+
 
                 
                 if (initialGameLogic.PassControlToSomeoneElse)
                 {
                     DetachistenersFromKeyboard();
-                    //GoToHangmanGameLoop();
+                    //Go to subgame loop;
+                    initialGameLogic.SubGame.Invoke();
                     AttachListenersToKeyboard();
                     initialGameLogic.PassControlToSomeoneElse = false;
                 }
+                
               
 
                 //render all
-                renderer.Render(field);
+                //renderer.Render(field);
+                //move character on field charachter to field
+                IList<IRenderable> objs = new List<IRenderable>();
+                objs.Add(initialGameLogic.Character);
+                renderer.DrawObjects(field, objs);
                 Thread.Sleep(20);
                 renderer.Clear();
             }
