@@ -24,7 +24,7 @@ namespace Game.GamesLogic.Hangman.Engine
             this.renderer = renderer;
             this.gameEvents = gameEvents;
             this.hangmanGameLogic = new HangmanGameLogic();
-            this.field = new GameField();
+            this.field = new HangmanGameField();
         }
 
         public void AttachListenersToKeyboard()

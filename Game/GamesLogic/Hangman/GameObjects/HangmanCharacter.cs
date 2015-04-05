@@ -7,7 +7,7 @@ using Game.HelperClasses;
 
 namespace Game.GamesLogic.Hangman.GameObjects
 {
-    public class Character : IGameObject
+    public class HangmanCharacter : IGameObject
     {
         //TO DO initialize in the constructor using values from file and set maximum restrictions
         private const int InitialLives = 7;
@@ -19,9 +19,9 @@ namespace Game.GamesLogic.Hangman.GameObjects
         public char usedLetter;
         private int lives;
 
-        public Character(Position position)
+        public HangmanCharacter(Position position)
         {
-            this.Lives = Character.InitialLives;
+            this.Lives = HangmanCharacter.InitialLives;
             this.CurrentPosition = position;
             UpdateBody();
         }
@@ -125,7 +125,7 @@ namespace Game.GamesLogic.Hangman.GameObjects
                 picture.Add("       |                       |__________");
                 picture.Add("       |                                 |");
                 picture.Add("       |                                 |");
-                picture.Add(new string('_', Character.PictureWidth));
+                picture.Add(new string('_', HangmanCharacter.PictureWidth));
             }
             else if (this.Lives == 6)
             {
@@ -154,7 +154,7 @@ namespace Game.GamesLogic.Hangman.GameObjects
                 picture.Add("       |                       |__________");
                 picture.Add("       |                                 |");
                 picture.Add("       |                                 |");
-                picture.Add(new string('_', Character.PictureWidth));
+                picture.Add(new string('_', HangmanCharacter.PictureWidth));
             }
             else if (this.Lives == 5)
             {
@@ -183,7 +183,7 @@ namespace Game.GamesLogic.Hangman.GameObjects
                 picture.Add("       |                       |__________");
                 picture.Add("       |                                 |");
                 picture.Add("       |                                 |");
-                picture.Add(new string('_', Character.PictureWidth));
+                picture.Add(new string('_', HangmanCharacter.PictureWidth));
             }
             else if (this.Lives == 4)
             {
@@ -212,7 +212,7 @@ namespace Game.GamesLogic.Hangman.GameObjects
                 picture.Add("       |                       |__________");
                 picture.Add("       |                                 |");
                 picture.Add("       |                                 |");
-                picture.Add(new string('_', Character.PictureWidth));
+                picture.Add(new string('_', HangmanCharacter.PictureWidth));
             }
             else if (this.Lives == 3)
             {
@@ -241,7 +241,7 @@ namespace Game.GamesLogic.Hangman.GameObjects
                 picture.Add("       |                       |__________");
                 picture.Add("       |                                 |");
                 picture.Add("       |                                 |");
-                picture.Add(new string('_', Character.PictureWidth));
+                picture.Add(new string('_', HangmanCharacter.PictureWidth));
             }
             else if (this.Lives == 2)
             {
@@ -270,7 +270,7 @@ namespace Game.GamesLogic.Hangman.GameObjects
                 picture.Add("       |                       |__________");
                 picture.Add("       |                                 |");
                 picture.Add("       |                                 |");
-                picture.Add(new string('_', Character.PictureWidth));
+                picture.Add(new string('_', HangmanCharacter.PictureWidth));
             }
             else if (this.Lives == 1)
             {
@@ -299,7 +299,7 @@ namespace Game.GamesLogic.Hangman.GameObjects
                 picture.Add("       |                       |__________");
                 picture.Add("       |                                 |");
                 picture.Add("       |                                 |");
-                picture.Add(new string('_', Character.PictureWidth));
+                picture.Add(new string('_', HangmanCharacter.PictureWidth));
             }
             else if (this.Lives == 0)
             {
@@ -328,7 +328,7 @@ namespace Game.GamesLogic.Hangman.GameObjects
                 picture.Add("       |                       |__________");
                 picture.Add("       |                                 |");
                 picture.Add("       |                                 |");
-                picture.Add(new string('_', Character.PictureWidth));
+                picture.Add(new string('_', HangmanCharacter.PictureWidth));
             }
 
             return picture;

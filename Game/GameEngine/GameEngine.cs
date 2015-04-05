@@ -38,13 +38,14 @@ namespace Game.GameEngine
 
         private void StartGameLoop()
         {
+            var builer = new ConsoleBuilder();
+            renderer.Render(builer.StartGameDraw(field, initialGameLogic.Character));
             AttachListenersToKeyboard();
+
             while (true)
             {
                 gameEvents.ProcessInput();
 
-
-                
                 if (initialGameLogic.PassControlToSomeoneElse)
                 {
                     DetachistenersFromKeyboard();
@@ -59,6 +60,7 @@ namespace Game.GameEngine
                 //render all
                 //renderer.Render(field);
                 //move character on field charachter to field
+                
                 IList<IRenderable> objs = new List<IRenderable>();
                 objs.Add(initialGameLogic.Character);
                 renderer.DrawObjects(field, objs);

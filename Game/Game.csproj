@@ -41,13 +41,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrawLogic\ConsoleBuilder.cs" />
     <Compile Include="DrawLogic\ConsoleRenderer.cs" />
     <Compile Include="GameEngine\GameEngine.cs" />
     <Compile Include="GamesLogic\Hangman\Engine\HangmanGameEngine.cs" />
     <Compile Include="GamesLogic\Hangman\GameLogic\HangmanGameLogic.cs" />
     <Compile Include="GamesLogic\Hangman\GameObjects\Alphabet.cs" />
-    <Compile Include="GamesLogic\Hangman\GameObjects\Character.cs" />
-    <Compile Include="GamesLogic\Hangman\GameObjects\GameField.cs" />
+    <Compile Include="GamesLogic\Hangman\GameObjects\HangmanCharacter.cs" />
+    <Compile Include="GamesLogic\Hangman\GameObjects\HangmanGameField.cs" />
     <Compile Include="GamesLogic\Hangman\GameObjects\HangmanTitle.cs" />
     <Compile Include="GamesLogic\Hangman\GameObjects\Word.cs" />
     <Compile Include="GamesLogic\InitialGame\GameObjects\Character.cs" />
@@ -57,8 +58,9 @@
     <Compile Include="GamesLogic\Sokoban\GameLogic\CollisionsDetection.cs" />
     <Compile Include="GamesLogic\Sokoban\GameLogic\SokobanGameLogic.cs" />
     <Compile Include="GamesLogic\Sokoban\GameObjects\Block.cs" />
-    <Compile Include="GamesLogic\Sokoban\GameObjects\Character.cs" />
+    <Compile Include="GamesLogic\Sokoban\GameObjects\SocobanCharacter.cs" />
     <Compile Include="GamesLogic\Sokoban\GameObjects\Elevator.cs" />
+    <Compile Include="GamesLogic\Sokoban\GameObjects\SocobanTitle.cs" />
     <Compile Include="GamesLogic\Sokoban\GameObjects\SokobanGameLevel1.cs" />
     <Compile Include="GamesLogic\Sokoban\GameObjects\Wall.cs" />
     <Compile Include="GamesLogic\Sokoban\GameObjects\WallDirection.cs" />

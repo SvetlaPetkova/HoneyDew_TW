@@ -18,8 +18,8 @@ namespace Game.GamesLogic.InitialGame.GameObjects
         public Character()
         {
             this.Body = InitializeCharachterBody();
-            this.CurrentPosition = new Position(20, 20);
-            this.PreviousPosition = new Position(this.currentPosition.X,this.currentPosition.Y);
+            this.CurrentPosition = new Position(Console.WindowWidth / 2 - 2, Console.WindowHeight - charachterBody.GetLength(0)-1 );
+            this.PreviousPosition = new Position(this.currentPosition.X, this.currentPosition.Y);
 
         }
 

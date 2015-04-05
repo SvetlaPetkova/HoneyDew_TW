@@ -12,7 +12,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 
     public static class CollisionsDetection
     {
-        public static bool MovingLeft(IEnumerable<IGameObject> objects, Character character)
+        public static bool MovingLeft(IEnumerable<IGameObject> objects, SocobanCharacter character)
         {
             bool cannotMove = false;
             var onlyWalls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
@@ -30,7 +30,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 
             return cannotMove;
         }
-        public static bool MovingUp(IEnumerable<IGameObject> objects, Character character)
+        public static bool MovingUp(IEnumerable<IGameObject> objects, SocobanCharacter character)
         {
             bool cannotMove = false;
             var onlyWalls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
@@ -49,7 +49,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
             return cannotMove;
         }
 
-        public static bool MovingDown(IEnumerable<IGameObject> objects, Character character)
+        public static bool MovingDown(IEnumerable<IGameObject> objects, SocobanCharacter character)
         {
             bool cannotMove = false;
             var onlyWalls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
@@ -68,7 +68,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
             return cannotMove;
         }
 
-        public static bool MovingRight(IEnumerable<IGameObject> objects, Character character)
+        public static bool MovingRight(IEnumerable<IGameObject> objects, SocobanCharacter character)
         {
             bool cannotMove = false;
             var onlyWalls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();

@@ -11,13 +11,13 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 {
     public class SokobanGameLogic
     {
-        private Character character;
+        private SocobanCharacter character;
         private IList<IGameObject> gameObjects;
         public bool ShouldPassControl { get; set; }
 
         public SokobanGameLogic()
         {
-            this.character = new Character();
+            this.character = new SocobanCharacter();
             this.ShouldPassControl = false;
             this.GameObjects = FillWithBlocks();
         }

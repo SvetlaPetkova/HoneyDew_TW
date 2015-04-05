@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Game.GamesLogic.Hangman.GameObjects
 {
-    public class GameField : IRenderable
+    public class HangmanGameField : IRenderable
     {
         private char[,] gameField;
 
-        public GameField()
+        public HangmanGameField()
         {
             this.Body = InitializeGameField();
         }
