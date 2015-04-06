@@ -21,7 +21,11 @@ namespace Game.GamesLogic.Sokoban.GameLogic
             this.ShouldPassControl = false;
             this.GameObjects = FillWithBlocks();
         }
-        public IList<IGameObject> GameObjects { get; protected set; }
+        public IList<IGameObject> GameObjects 
+        { 
+            get {return this.gameObjects; }
+            protected set { this.gameObjects = value; } 
+        }
 
         private IList<IGameObject> FillWithBlocks()
         {
@@ -71,46 +75,13 @@ namespace Game.GamesLogic.Sokoban.GameLogic
             objs.Add(this.character);
             return objs;
         }
-        public void DrawSokobanGameObjects(SokobanGameLevel1 field)
-        {
-            this.ClearAroundCharachter(ref field);
-
-            foreach (IGameObject obj in this.gameObjects)
-            {
-                for (int row = 0; row < obj.Body.GetLength(0); row++)
-                {
-                    for (int col = 0; col < obj.Body.GetLength(1); col++)
-                    {
-                        var currentY = obj.CurrentPosition.Y;
-                        var currentX = obj.CurrentPosition.X;
-                        field.Body[row + currentY, col + currentX] = obj.Body[row, col];
-                    }
-                }
-            }
-        }
-        private void ClearAroundCharachter(ref SokobanGameLevel1 field)
-        {
-            var rows = 40;
-            var cols = 40;
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    if (i == 0 || j == 0 || i == rows || j == cols)
-                    {
-                        continue;
-                    }
-                    field.Body[i, j] = ' ';
-                }
-            }
-        }
 
         public void HandleSokobanKeyboardInputs(object sender, EventArgs e)
         {
             GameEventArgs keyboardArgs = (GameEventArgs)e;
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Left)
             {
-                if (this.character.CurrentPosition.X > 1 && !(CollisionsDetection.MovingLeft(FillWithBlocks(), this.character))
+                if (/*this.character.CurrentPosition.X > 1 && */!(CollisionsDetection.MovingLeft(gameObjects, this.character))
                     && !(this.character.CurrentPosition.X == 7 && (this.character.CurrentPosition.Y > 8 && this.character.CurrentPosition.Y <= 20)))
                 {
                     this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
@@ -119,19 +90,19 @@ namespace Game.GamesLogic.Sokoban.GameLogic
                 }
             }
 
-            if (keyboardArgs.KeyboardCurrentState == KeyboardState.Up && !(CollisionsDetection.MovingUp(FillWithBlocks(), this.character)))
+            if (keyboardArgs.KeyboardCurrentState == KeyboardState.Up && !(CollisionsDetection.MovingUp(gameObjects, this.character)))
             {
-                if (this.character.CurrentPosition.Y > 1)
-                {
+                //if (this.character.CurrentPosition.Y > 1)
+                //{
                     this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
                     this.character.PreviousPosition.X = this.character.CurrentPosition.X;
                     this.character.CurrentPosition.Y--;
-                }
+                //}
             }
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Down)
             {
-                if (this.character.CurrentPosition.Y < 37 && !(CollisionsDetection.MovingDown(FillWithBlocks(), this.character)))
+                if (/*this.character.CurrentPosition.Y < 37 && */!(CollisionsDetection.MovingDown(gameObjects, this.character)))
                 {
                     this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
                     this.character.PreviousPosition.X = this.character.CurrentPosition.X;
@@ -141,7 +112,7 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Right)
             {
-                if (this.character.CurrentPosition.X < 32 && !(CollisionsDetection.MovingRight(FillWithBlocks(), this.character))
+                if (/*this.character.CurrentPosition.X < 32 &&*/ !(CollisionsDetection.MovingRight(gameObjects, this.character))
                     && !(this.character.CurrentPosition.X == 34 && (this.character.CurrentPosition.Y > 10 && this.character.CurrentPosition.Y <= 20)))
                 {
                     this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;

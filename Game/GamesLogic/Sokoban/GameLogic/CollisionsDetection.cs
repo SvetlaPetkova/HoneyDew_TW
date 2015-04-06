@@ -15,9 +15,9 @@ namespace Game.GamesLogic.Sokoban.GameLogic
         public static bool MovingLeft(IEnumerable<IGameObject> objects, Character character)
         {
             bool cannotMove = false;
-            var onlyWalls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
+            var horisontalWlls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
 
-            foreach (Wall walls in onlyWalls)
+            foreach (Wall walls in horisontalWlls)
             {
                 if(character.CurrentPosition.X - walls.Length == walls.CurrentPosition.X
                    // && character.CurrentPosition.Y >= walls.CurrentPosition.Y +1
@@ -33,9 +33,9 @@ namespace Game.GamesLogic.Sokoban.GameLogic
         public static bool MovingUp(IEnumerable<IGameObject> objects, Character character)
         {
             bool cannotMove = false;
-            var onlyWalls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
+            var horisontalWlls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
 
-            foreach (Wall walls in onlyWalls)
+            foreach (Wall walls in horisontalWlls)
             {
                 if (character.CurrentPosition.Y - 1 == walls.CurrentPosition.Y
                     && (character.CurrentPosition.X >= walls.CurrentPosition.X - 1
@@ -46,15 +46,16 @@ namespace Game.GamesLogic.Sokoban.GameLogic
                 }
             }
 
+
             return cannotMove;
         }
 
         public static bool MovingDown(IEnumerable<IGameObject> objects, Character character)
         {
             bool cannotMove = false;
-            var onlyWalls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
+            var horisontalWlls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
 
-            foreach (Wall walls in onlyWalls)
+            foreach (Wall walls in horisontalWlls)
             {
                 if (character.CurrentPosition.Y + 2 == walls.CurrentPosition.Y
                     && (character.CurrentPosition.X + 1 >= walls.CurrentPosition.X
@@ -71,9 +72,9 @@ namespace Game.GamesLogic.Sokoban.GameLogic
         public static bool MovingRight(IEnumerable<IGameObject> objects, Character character)
         {
             bool cannotMove = false;
-            var onlyWalls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
+            var horisontalWlls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
 
-            foreach (Wall walls in onlyWalls)
+            foreach (Wall walls in horisontalWlls)
             {
                 if (character.CurrentPosition.X + 2 == walls.CurrentPosition.X
                     && (character.CurrentPosition.Y == walls.CurrentPosition.Y

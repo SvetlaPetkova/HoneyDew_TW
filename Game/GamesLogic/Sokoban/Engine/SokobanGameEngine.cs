@@ -45,6 +45,7 @@ namespace Game.GamesLogic.Sokoban.Engine
             while(true)
             {
                 this.gameEvents.ProcessInput();
+
                 renderer.DrawObjects((IRenderable)level1, sokobanGameLogic.GameObjects.Cast<IRenderable>().ToList());
 
                 if(this.sokobanGameLogic.ShouldPassControl)
@@ -52,21 +53,10 @@ namespace Game.GamesLogic.Sokoban.Engine
                     DetachListenersFromKeyboard();
                     break;
                 }
-
-                //render all
-                
+                                
                 Thread.Sleep(70);
                 renderer.Clear();
             }
         }
-        //private List<IRenderable>CastToSomething(IList<IGameObject> gameObjects)
-        //{
-        //    var returnList = new List<IRenderable>();
-        //    foreach (var obj in gameObjects)
-        //    {
-        //        returnList.Add((IRenderable)obj);
-        //    }
-        //    return returnList;
-        //}
     }
 }

@@ -30,31 +30,23 @@ namespace Game.GamesLogic.Sokoban.GameObjects
                 }
             }
 
-            // This cycle fill the old walls with '0' so we don't need it any more
-            //for (int row = 0, col = 0; row < rows; row++, col++)
-            //{
-            //    field[row, 0] = '0';
-            //    field[row, cols] = '0';
-            //    field[0, col] = '0';
-            //    field[cols, col] = '0';
-            //}
             PutPressKeyTextOnField(field);
 
             return field;
         }
         private void PutPressKeyTextOnField(char[,] field)
         {
-            field[21, 2] = 'P';
-            field[21, 3] = 'R';
-            field[21, 4] = 'E';
-            field[21, 5] = 'S';
-            field[21, 6] = 'S';
-            field[21, 7] = ' ';
-            field[21, 8] = '"';
-            field[21, 9] = 'E';
-            field[21, 10] = 'S';
-            field[21, 11] = 'C';
-            field[21, 12] = '"';
+            field[2, 2] = 'P';
+            field[2, 3] = 'R';
+            field[2, 4] = 'E';
+            field[2, 5] = 'S';
+            field[2, 6] = 'S';
+            field[2, 7] = ' ';
+            field[2, 8] = '"';
+            field[2, 9] = 'E';
+            field[2, 10] = 'S';
+            field[2, 11] = 'C';
+            field[2, 12] = '"';
         }
 
         public char[,] Body
