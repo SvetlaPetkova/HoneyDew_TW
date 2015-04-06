@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Game.GamesLogic.Sokoban.GameObjects
 {
-    public class Character : IGameObject, IRenderable, IMovable
+    public class SocobanCharacter : IGameObject, IRenderable, IMovable
     {
         private Position currentPosition;
         private char[,] charachterBody;
         private Position previousPosition;
         private string direction;
 
-        public Character()
+        public SocobanCharacter()
         {
             this.CurrentPosition = new Position(8, 8);
             this.charachterBody = new char[,] {{'^', ' '},

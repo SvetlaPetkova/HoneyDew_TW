@@ -14,7 +14,7 @@
     {
         private const int TakeRowsForTitle = 9;
 
-        private Character character;
+        private HangmanCharacter character;
         private Word currentWord;
         private ISet<char> usedLetters;
         public bool ShouldPassControl { get; set; }
@@ -25,7 +25,7 @@
         {
             InitAlphabet();
 
-            this.character = new Character(new Position(1, 2));
+            this.character = new HangmanCharacter(new Position(1, 2));
             this.currentWord = new Word(new Position(1, 30), Word.PickWord());
             this.GameObjects = new List<IRenderable> { character, currentWord };
             this.ShouldPassControl = false;
