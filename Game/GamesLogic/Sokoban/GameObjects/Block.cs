@@ -21,6 +21,7 @@ namespace Game.GamesLogic.Sokoban.GameObjects
             this.blockBody = new char[,] {{'G', 'G'},
                                           {'G', 'G'}};
             this.PreviousPosition = new Position(this.currentPosition.X, this.currentPosition.Y);
+            this.Direction = "none";
         }
 
         public Position CurrentPosition
@@ -68,6 +69,40 @@ namespace Game.GamesLogic.Sokoban.GameObjects
             set
             {
                 this.direction = value;
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Block))
+            {
+                return false;
+            }
+            if ((obj as Block).Direction != this.Direction)
+            {
+                return false;
+            }
+            if ((obj as Block).currentPosition != this.currentPosition)
+            {
+                return false;
+            }
+            if ((obj as Block).previousPosition != this.previousPosition)
+            {
+                return false;
+            }
+
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + this.currentPosition.GetHashCode();
+                hash = hash * 23 + this.PreviousPosition.GetHashCode();
+                hash = hash * 23 + this.Direction.GetHashCode();
+                return hash;
             }
         }
     }

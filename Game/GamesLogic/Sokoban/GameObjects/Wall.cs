@@ -12,14 +12,17 @@ namespace Game.GamesLogic.Sokoban.GameObjects
     public class Wall : IGameObject, IRenderable
     {
         private Position currentPosition;
+
         public Wall(Position initialPosition, WallDirection direction, int length)
         {
-            this.CurrentPosition = initialPosition;
+            this.CurrentPosition = new Position(initialPosition.X, initialPosition.Y);
             this.Direction = direction;
             this.Length = length;
             ConstructBody(1, this.Length, this.Direction);
         }
+
         public WallDirection Direction { get; private set; }
+
         public int Length { get; private set; }
 
         public Position CurrentPosition
@@ -59,6 +62,35 @@ namespace Game.GamesLogic.Sokoban.GameObjects
                     this.Body[row, col] = '█';
                 }
 
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if ((obj as Wall) != null)
+            {
+                return false;
+            }
+            if ((obj as Wall).Direction != this.Direction)
+            {
+                return false;
+            }
+            if ((obj as Wall).currentPosition != this.currentPosition)
+            {
+                return false;
+            }
+
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + this.currentPosition.GetHashCode();
+                hash = hash * 23 + this.Direction.GetHashCode();
+                return hash;
             }
         }
 

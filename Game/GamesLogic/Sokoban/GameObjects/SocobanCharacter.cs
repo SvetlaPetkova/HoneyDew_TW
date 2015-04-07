@@ -18,9 +18,10 @@ namespace Game.GamesLogic.Sokoban.GameObjects
         public SocobanCharacter()
         {
             this.CurrentPosition = new Position(8, 8);
-            this.charachterBody = new char[,] {{'^', ' '},
-                                               {'<','>'}};
+            this.charachterBody = new char[,] {{'^', '^'},
+                                               {'<', '>'}};
             this.previousPosition = new Position(this.currentPosition.X, this.currentPosition.Y);
+            this.Direction = "none";
         }
 
         public Position CurrentPosition
@@ -68,6 +69,40 @@ namespace Game.GamesLogic.Sokoban.GameObjects
             set
             {
                 this.direction = value;
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is SocobanCharacter))
+            {
+                return false;
+            }
+            if ((obj as SocobanCharacter).Direction != this.Direction)
+            {
+                return false;
+            }
+            if ((obj as SocobanCharacter).currentPosition != this.currentPosition)
+            {
+                return false;
+            }
+            if ((obj as SocobanCharacter).previousPosition != this.previousPosition)
+            {
+                return false;
+            }
+
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + this.currentPosition.GetHashCode();
+                hash = hash * 23 + this.PreviousPosition.GetHashCode();
+                hash = hash * 23 + this.Direction.GetHashCode();
+                return hash;
             }
         }
     }

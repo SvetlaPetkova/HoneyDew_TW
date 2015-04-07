@@ -114,7 +114,6 @@
                 this.ShouldPassControl = true;
                 Thread.Sleep(2000);
             }
-            // TO DO return result to the game engine
         }
 
         private void CheckForWin()
@@ -128,7 +127,6 @@
 
                 Thread.Sleep(2000);
             }
-            // TO DO return result to the game engine
         }
 
        

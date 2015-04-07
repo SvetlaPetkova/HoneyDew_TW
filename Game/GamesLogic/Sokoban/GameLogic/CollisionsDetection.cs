@@ -12,79 +12,44 @@ namespace Game.GamesLogic.Sokoban.GameLogic
 
     public static class CollisionsDetection
     {
-        public static bool MovingLeft(IEnumerable<IGameObject> objects, SocobanCharacter character)
+        internal static bool DetectCollission(IGameObject movingObject, IList<IGameObject> objectsToCheck, ref IList<IGameObject> colidedList)
         {
-            bool cannotMove = false;
-            var horisontalWlls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
-
-            foreach (Wall walls in horisontalWlls)
+            bool isCollided = false;
+            foreach (var obj in objectsToCheck)
             {
-                if(character.CurrentPosition.X - walls.Length == walls.CurrentPosition.X
-                   // && character.CurrentPosition.Y >= walls.CurrentPosition.Y +1
-                    && (character.CurrentPosition.Y == walls.CurrentPosition.Y
-                    || character.CurrentPosition.Y + 1 == walls.CurrentPosition.Y))
+                if (!movingObject.Equals(obj))
                 {
-                    cannotMove = true;
+                    if (DoesIntersect(obj, movingObject))
+                    {
+                        colidedList.Add(obj);
+                        isCollided = true;
+                    }
                 }
             }
 
-            return cannotMove;
-        }
-        public static bool MovingUp(IEnumerable<IGameObject> objects, SocobanCharacter character)
-        {
-            bool cannotMove = false;
-            var horisontalWlls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
-
-            foreach (Wall walls in horisontalWlls)
-            {
-                if (character.CurrentPosition.Y - 1 == walls.CurrentPosition.Y
-                    && (character.CurrentPosition.X >= walls.CurrentPosition.X - 1
-                    && character.CurrentPosition.X <= walls.CurrentPosition.X + walls.Length - 1))
-                    
-                {
-                    cannotMove = true;
-                }
-            }
-
-
-            return cannotMove;
+            return isCollided;
         }
 
-        public static bool MovingDown(IEnumerable<IGameObject> objects, SocobanCharacter character)
+        private static bool DoesIntersect(IGameObject obj, IGameObject movingObject)
         {
-            bool cannotMove = false;
-            var horisontalWlls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
+            int minX = movingObject.CurrentPosition.X;
+            int maxX = movingObject.CurrentPosition.X + movingObject.Body.GetLength(1) - 1;
+            int minY = movingObject.CurrentPosition.Y ;
+            int maxY = movingObject.CurrentPosition.Y + movingObject.Body.GetLength(0) - 1;
 
-            foreach (Wall walls in horisontalWlls)
+            int minObjX = obj.CurrentPosition.X;
+            int maxObjX = obj.CurrentPosition.X + obj.Body.GetLength(1) - 1;
+            int minObjY = obj.CurrentPosition.Y;
+            int maxObjY = obj.CurrentPosition.Y + obj.Body.GetLength(0) - 1;
+
+            if ((minX >= minObjX && minX <= maxObjX) || (maxX >= minObjX && maxX <= maxObjX))
             {
-                if (character.CurrentPosition.Y + 2 == walls.CurrentPosition.Y
-                    && (character.CurrentPosition.X + 1 >= walls.CurrentPosition.X
-                    && character.CurrentPosition.X < walls.CurrentPosition.X + walls.Length))
-                    
+                if ((minY >= minObjY && minY <= maxObjY) || (maxY >= minObjY && maxY <= maxObjY))
                 {
-                    cannotMove = true;
+                    return true;
                 }
             }
-
-            return cannotMove;
-        }
-
-        public static bool MovingRight(IEnumerable<IGameObject> objects, SocobanCharacter character)
-        {
-            bool cannotMove = false;
-            var horisontalWlls = objects.Where(x => x is Wall).Where(y => (y as Wall).Direction == WallDirection.Horizontal).ToList();
-
-            foreach (Wall walls in horisontalWlls)
-            {
-                if (character.CurrentPosition.X + 2 == walls.CurrentPosition.X
-                    && (character.CurrentPosition.Y == walls.CurrentPosition.Y
-                    || character.CurrentPosition.Y == walls.CurrentPosition.Y - 1))
-                {
-                    cannotMove = true;
-                }
-            }
-
-            return cannotMove;
+            return false;
         }
     }
 }

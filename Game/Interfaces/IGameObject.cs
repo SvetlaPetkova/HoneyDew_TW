@@ -10,5 +10,7 @@ namespace Game.Interfaces
     public interface IGameObject : IRenderable
     {
         Position CurrentPosition { get; set; }
+
+        bool Equals(System.Object obj);
     }
 }

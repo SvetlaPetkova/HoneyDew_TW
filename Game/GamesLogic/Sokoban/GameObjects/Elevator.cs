@@ -32,10 +32,52 @@ namespace Game.GamesLogic.Sokoban.GameObjects
                 this.currentPosition = value;
             }
         }
+        public bool IsFull 
+        { 
+            get; 
+            set; 
+        }
 
-        public char[,] Body { get; private set; }
+        public char[,] Body
+        {
+            get
+            {
+                return this.elevatorBody;
+            }
+            private set
+            {
+                this.elevatorBody = value;
+            }
+        }
 
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Elevator))
+            {
+                return false;
+            }
+            if ((obj as Elevator).IsFull != this.IsFull)
+            {
+                return false;
+            }
+            if ((obj as Elevator).currentPosition != this.currentPosition)
+            {
+                return false;
+            }
 
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + this.currentPosition.GetHashCode();
+                hash = hash * 23 + this.IsFull.GetHashCode();
+                return hash;
+            }
+        }
     }
 }
-
+    

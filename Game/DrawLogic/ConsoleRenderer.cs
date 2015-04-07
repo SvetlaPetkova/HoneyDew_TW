@@ -31,14 +31,16 @@ namespace Game.DrawLogic
 
         public void DrawObjects(IRenderable field, IList<IRenderable> objects)
         {
-
             foreach (IGameObject obj in objects)
             {
                 if (obj is IMovable)
                 {
-                    ClearAroundCharachter(ref field, (IMovable)obj);
+                    ClearAroundMovingObject(ref field, (IMovable)obj);
                 }
+            }
 
+            foreach (IGameObject obj in objects)
+            {
                 for (int row = 0; row < obj.Body.GetLength(0); row++)
                 {
 
@@ -54,7 +56,7 @@ namespace Game.DrawLogic
             Render(field);
         }
 
-        private void ClearAroundCharachter(ref IRenderable field, IMovable movingObject)
+        private void ClearAroundMovingObject(ref IRenderable field, IMovable movingObject)
         {
             for (int i = 0; i < movingObject.Body.GetLength(0); i++)
             {

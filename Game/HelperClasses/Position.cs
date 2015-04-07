@@ -18,7 +18,6 @@ namespace Game.HelperClasses
             this.Y = y;
         }
 
-
         public int X
         {
             get { return this.x; }
@@ -47,5 +46,33 @@ namespace Game.HelperClasses
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Position)
+            {
+                return false;
+            }
+            if ((obj as Position).X != this.X)
+            {
+                return false;
+            }
+            if ((obj as Position).Y != this.Y)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + this.X.GetHashCode();
+                hash = hash * 23 + this.Y.GetHashCode();
+                return hash;
+            }
+        }
     }
 }
