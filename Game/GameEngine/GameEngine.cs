@@ -23,6 +23,9 @@ namespace Game.GameEngine
 
         public void StartGame()
         {
+            Console.WindowWidth = Console.BufferWidth = 101;
+            Console.WindowHeight = Console.BufferHeight = 51;
+
             InitializeVariables();
             StartGameLoop();
         }
@@ -55,12 +58,7 @@ namespace Game.GameEngine
                     initialGameLogic.PassControlToSomeoneElse = false;
                 }
                 
-              
-
                 //render all
-                //renderer.Render(field);
-                //move character on field charachter to field
-                
                 IList<IRenderable> objs = new List<IRenderable>();
                 objs.Add(initialGameLogic.Character);
                 renderer.DrawObjects(field, objs);

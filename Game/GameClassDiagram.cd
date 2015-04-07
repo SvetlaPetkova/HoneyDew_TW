@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ConsoleApplication1.Alphabet" Collapsed="true">
-    <Position X="4.5" Y="0.75" Width="1.5" />
+    <Position X="6" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAgAAAAAAAQ=</HashCode>
       <FileName>GamesLogic\Hangman\GameObjects\Alphabet.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Game.GamesLogic.Hangman.GameObjects.Character" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8" Y="0.75" Width="1.5" />
+  <Class Name="Game.GamesLogic.Hangman.GameObjects.HangmanCharacter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAIAAAAAAAEBAAACAAIQAgACgAAAAAQQAEA=</HashCode>
-      <FileName>GamesLogic\Hangman\GameObjects\Character.cs</FileName>
+      <FileName>GamesLogic\Hangman\GameObjects\HangmanCharacter.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Game.GamesLogic.Hangman.GameObjects.GameField" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="6.25" Y="1.75" Width="1.5" />
+  <Class Name="Game.GamesLogic.Hangman.GameObjects.HangmanGameField" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAgBAAAAAAAAAAA=</HashCode>
-      <FileName>GamesLogic\Hangman\GameObjects\GameField.cs</FileName>
+      <FileName>GamesLogic\Hangman\GameObjects\HangmanGameField.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Game.GamesLogic.Hangman.GameObjects.HangmanTitle" Collapsed="true">
-    <Position X="9.75" Y="1.75" Width="1.5" />
+    <Position X="6" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GamesLogic\Hangman\GameObjects\HangmanTitle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game.GamesLogic.Hangman.GameObjects.Word" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="6.25" Y="2.75" Width="1.5" />
+    <Position X="6" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAABAAAAAAAAAAACAAgBAQADAQAAAgAEADgAAAAAAAI=</HashCode>
       <FileName>GamesLogic\Hangman\GameObjects\Word.cs</FileName>
@@ -39,7 +39,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Game.GamesLogic.InitialGame.GameObjects.Character" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.75" Y="0.75" Width="1.5" />
+    <Position X="4.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQIAAAAAAAAIAAAACABAIACAAAAAgAAAABAAAAAAAA=</HashCode>
       <FileName>GamesLogic\InitialGame\GameObjects\Character.cs</FileName>
@@ -47,7 +47,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Game.GamesLogic.InitialGame.GameObjects.GameField" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8" Y="1.75" Width="1.5" />
+    <Position X="4.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIAABAAAAAAAAAAgBAAAAAAAAAAA=</HashCode>
       <FileName>GamesLogic\InitialGame\GameObjects\GameField.cs</FileName>
@@ -55,63 +55,136 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Game.GamesLogic.Sokoban.GameObjects.Block" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="6.25" Y="0.75" Width="1.5" />
+    <Position X="7.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAIIAAACABAAACAAAAAgAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAIIAAgCABAAACAAAAAoAAAABAAAAAAAA=</HashCode>
       <FileName>GamesLogic\Sokoban\GameObjects\Block.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Game.GamesLogic.Sokoban.GameObjects.Character" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4.5" Y="1.75" Width="1.5" />
+  <Class Name="Game.GamesLogic.Sokoban.GameObjects.SocobanCharacter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAIAAAACABAIACAAAAAgAAAABAAAAAAAA=</HashCode>
-      <FileName>GamesLogic\Sokoban\GameObjects\Character.cs</FileName>
+      <HashCode>AAQAAAAAAAAAIAAAgCABAIACAAAAAoAAAABAAAAAAAA=</HashCode>
+      <FileName>GamesLogic\Sokoban\GameObjects\SocobanCharacter.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Game.GamesLogic.Sokoban.GameObjects.SokobanGameLevel1" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4.5" Y="2.75" Width="1.5" />
+    <Position X="7.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAABAAAAAAAAAAgBAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAgBAAAAAAAAAAA=</HashCode>
       <FileName>GamesLogic\Sokoban\GameObjects\SokobanGameLevel1.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
+  <Class Name="Game.DrawLogic.ConsoleRenderer" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAABAAAABAAAA=</HashCode>
+      <FileName>DrawLogic\ConsoleRenderer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Game.GamesLogic.Sokoban.GameObjects.Elevator" Collapsed="true">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAABAAACEAAAAoAIAAAAAAAAAAA=</HashCode>
+      <FileName>GamesLogic\Sokoban\GameObjects\Elevator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Game.GamesLogic.Sokoban.GameObjects.Wall" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgCABAABCIAAAAoAAAAAAAAAAAAA=</HashCode>
+      <FileName>GamesLogic\Sokoban\GameObjects\Wall.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Game.GamesLogic.Hangman.Engine.HangmanGameEngine" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAJAAAAAAAACAAAAgAAAAAAQAAAAAAAAAgAA=</HashCode>
+      <FileName>GamesLogic\Hangman\Engine\HangmanGameEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.GamesLogic.Sokoban.GameLogic.SokobanGameLogic" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAMAAAEAACABAAIAAAAAAgABAAAAAAAAAAIAAAAAAE=</HashCode>
+      <FileName>GamesLogic\Sokoban\GameLogic\SokobanGameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.GamesLogic.Sokoban.GameLogic.CollisionsDetection" Collapsed="true">
+    <Position X="7.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GamesLogic\Sokoban\GameLogic\CollisionsDetection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.GameEngine.GameEngine" Collapsed="true">
+    <Position X="4.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAEABAAAQAAAACAAAAgAAAAAAAAACAAAAAAgAA=</HashCode>
+      <FileName>GameEngine\GameEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.GamesLogic.InitialGame.InitialGameLogic" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAkAAAAIAAAAAEIAAAAAAAAAAABQACEA=</HashCode>
+      <FileName>GamesLogic\InitialGame\InitialGameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.HelperClasses.Position" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAABgAAAA4AA=</HashCode>
+      <FileName>HelperClasses\Position.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="Game.Interfaces.IGameEvents" Collapsed="true">
-    <Position X="4.5" Y="4" Width="1.5" />
+    <Position X="2.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAgAAABAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IGameEvents.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game.Interfaces.IGameObject">
-    <Position X="2" Y="2.5" Width="1.5" />
+    <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IGameObject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game.Interfaces.IMovable" Collapsed="true">
-    <Position X="1.25" Y="4.5" Width="1.5" />
+    <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>Interfaces\IMovable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game.Interfaces.IRenderable">
-    <Position X="2" Y="0.75" Width="1.5" />
+    <Position X="0.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IRenderable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Game.Interfaces.IRenderer" Collapsed="true">
-    <Position X="8" Y="4" Width="1.5" />
+    <Position X="2.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABAAAABAAAA=</HashCode>
       <FileName>Interfaces\IRenderer.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Enum Name="Game.HelperClasses.KeyboardState" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAAAAAAAAAAAAAAAAAAACACAAAEAAAY=</HashCode>
+      <FileName>HelperClasses\KeyboardState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

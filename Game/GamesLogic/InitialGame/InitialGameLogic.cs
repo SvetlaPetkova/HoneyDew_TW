@@ -63,7 +63,7 @@ namespace Game.GamesLogic.InitialGame
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Right)
             {
-                if (this.character.CurrentPosition.X < 75)
+                if (this.character.CurrentPosition.X < Console.WindowWidth - 7)
                 {
                     this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
                     this.character.PreviousPosition.X = this.character.CurrentPosition.X;
@@ -83,7 +83,7 @@ namespace Game.GamesLogic.InitialGame
 
             if (keyboardArgs.KeyboardCurrentState == KeyboardState.Down)
             {
-                if (this.Character.CurrentPosition.Y < 75)
+                if (this.Character.CurrentPosition.Y < Console.WindowHeight - 5)
                 {
                     this.character.PreviousPosition.Y = this.character.CurrentPosition.Y;
                     this.character.PreviousPosition.X = this.character.CurrentPosition.X;

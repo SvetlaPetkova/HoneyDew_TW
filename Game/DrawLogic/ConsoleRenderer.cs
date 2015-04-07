@@ -21,7 +21,7 @@ namespace Game.DrawLogic
                 }
                 result.Append('\n');
             }
-            Console.WriteLine(result.ToString());
+            Console.Write(result.ToString());
         }
 
         public void Clear()
